@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center><h1>Добро пожаловать в игру.Начинаем</h1></br>
+    <img height="100" id="1" src="Барабан.jpg" onclick="onoff(true)"></br>
+    <img src="strelochka.png" height="50">
+<input type="text" id="3">
+    <h1 id="2">0</h1>
+<h1 id="4">hhhh</h1>
+</body>
+<script>
+g=0
+spin=false
+i=0
+a=0
+x=0
+    function onoff(spinwork) {
+    if(!spin){
+        spin = spinwork
+        setTimeout(function () {
+            spin = false
+            if(g>=0&&g<22.5){
+                a="250"}
+            if(g>=22.5&&g<45){
+                a="350"}
+            if(g>=45&&g<67.5){
+                a="500"}
+            if(g>=67.5&&g<90){
+                a="x2"}
+            if(g>=90&&g<112.5){
+                a="150"}
+            if(g>=112.5&&g<135){
+                a="приз"}
+            if(g>=135&&g<157.5){
+                a="?"}
+            if(g>=157.5&&g<180){
+                a="300"}
+            if(g>=180&&g<202.5){
+                a="-100"}
+            if(g>=202.5&&g<225){
+                a="100"}
+            if(g>=225&&g<247.5){
+                a="200"}
+            if(g>=247.5&&g<270){
+                a="0"}
+            if(g>=270&&g<292.5){
+                a="300"}
+            if(g>=292.5&&g<315){
+                a="Б"}
+            if(g>=315&&g<337.5){
+                a="50"}
+            if(g>=337.5&&g<360){
+                a="+"}
+            document.getElementById('2').innerHTML=a
+            if(document.getElementById('3').valueOf(x)===a){
+            x="Победа"
+             document.getElementById('4').innerHTML = x
+            }
+            if(document.getElementById('3').valueOf(x)!=a){
+            x='Попробуй еще раз'
+             document.getElementById('4').innerHTML = x
+            }
+            },i=Math.floor(Math.random()*3000)+1)}
+    setInterval(function () {
+        if(spin){
+            g=g+20
+            if (g>360){
+                g=0
+            }
+            document.getElementById('1').style.transform = 'rotate('+g+'deg)'
+        }
+    },10)
+</script>
+</html>
